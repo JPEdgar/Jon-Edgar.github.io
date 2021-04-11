@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+padding: 25px;
+}
+
+header {
+  background-color: lightgray;
+}
+
+nav {
+  background-color: gray;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.test {
+  background-color: lightblue;
+  height: 75vh;
+}

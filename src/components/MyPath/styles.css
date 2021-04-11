@@ -1,0 +1,60 @@
+.container {
+  background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.test2 {
+  margin: 0px;
+  background-color: #c97200;
+  height: 40px;
+  width: 40px;
+  border: "1px solid black";
+}
+
+.grid {
+  background-color: lightgrey;
+  text-align: center;
+}
+
+.wallNode {
+  background-color: #646464;
+  color: white;
+}
+
+.startNode {
+  background-color: yellow;
+}
+
+.endNode {
+  background-color: red;
+}
+
+.visitedNode {
+  background-color: blue;
+  animation-name: visited;
+  animation-duration: 2s;
+}
+
+.pathNode {
+  background-color: orange;
+  animation-name: path;
+  animation-duration: 2s;
+}
+
+@keyframes visited {
+  from {
+    background-color: lightgrey;
+  }
+  to {
+    background-color: blue;
+  }
+}
+@keyframes path {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: orange;
+  }
+}
