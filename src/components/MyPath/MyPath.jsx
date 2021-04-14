@@ -3,8 +3,6 @@ import React from "react";
 import Grid from "./components/Grid";
 import { GridProvider } from "./contexts/GridContext";
 
-import "./styles.css";
-
 export default function MyPath() {
   return (
     <div>
@@ -16,6 +14,7 @@ export default function MyPath() {
         This project was inspired by{" "}
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://clementmihailescu.github.io/Pathfinding-Visualizer/"
         >
           Clement Mihailescu's

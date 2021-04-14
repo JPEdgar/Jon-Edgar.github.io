@@ -1,3 +1,15 @@
+export default function FindNeighbor(startSpot) {
+  // up (0, -1), right (+1, 0), down (0, +1), left (-1, 0)
+  const neighborLocations = [
+    [0, -1],
+    [1, 0],
+    [0, 1],
+    [-1, 0],
+  ];
+  return [];
+}
+
+/*
 export default function FindNeighbor(startNode, numCols, numRows) {
   let searchNode = [];
   const returnArr = [];
@@ -81,3 +93,5 @@ export default function FindNeighbor(startNode, numCols, numRows) {
 
   return [returnArr, continueSearch, foundEnd, luckyNode];
 }
+
+*/

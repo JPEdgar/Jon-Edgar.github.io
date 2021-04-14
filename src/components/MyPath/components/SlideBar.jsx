@@ -1,20 +1,26 @@
 ////// slider component reverse-engineered from:
 // https://www.npmjs.com/package/react-input-range-slider
 
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { GridContext, ACTIONS } from "../contexts/GridContext";
 
-export default function SlideBar({
-  id,
-  label,
-  max,
-  value,
-  callback,
-}) {
-  const [currentValue, setSliderValue] = useState(value);
-  const onChange = (event) => {
-    setSliderValue(event.target.value);
-    callback(event.target.value);
+export default function SlideBar({ id, label, max }) {
+  const [state, dispatch] = useContext(GridContext);
+  const handleChange = (e) => {
+    if (label === "Rows") {
+      dispatch({ type: ACTIONS.GRID_ROWS_SET, payload: e.target.value });
+    } else if (label === "Cols") {
+      dispatch({ type: ACTIONS.GRID_COLS_SET, payload: e.target.value });
+    }
   };
+
+  let item;
+  if (label === "Rows") {
+    item = state.numRows;
+  } else if (label === "Cols") {
+    item = state.numCols;
+  }
+
   return (
     <>
       <form>
@@ -23,11 +29,13 @@ export default function SlideBar({
           type="range"
           min={3}
           max={max}
-          value={currentValue}
+          value={item}
           step={1}
-          onChange={onChange}
+          onChange={handleChange}
         />
-        <label for={`slider${id}`}>{currentValue} {label}</label>
+        <label htmlFor={`slider${id}`}>
+          {item} {label}
+        </label>
       </form>
     </>
   );

@@ -1,17 +1,15 @@
 export const GridDetails = {
-  numRows: 10,
-  numCols: 10,
+  numRows: 5,
+  numCols: 5,
   cellSize: 30,
-  gridMargin: 0,
-  cellStroke: 1,
 };
 
 export const StartNode = {
   xLoc: 1,
-  yLoc: 2,
+  yLoc: 3,
 };
 
 export const EndNode = {
-  xLoc: 8,
-  yLoc: 7,
+  xLoc: 3,
+  yLoc: 1,
 };

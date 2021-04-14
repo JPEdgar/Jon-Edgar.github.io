@@ -1,27 +1,39 @@
-import { useState, createContext, useReducer } from "react";
-
-export const ACTIONS = {
-  GRID_ROWS_INC: "grid-rows-inc",
-  GRID_ROWS_DEC: "grid-rows-dec",
-  GRID_COLS_INC: "grid-rows-inc",
-  GRID_COLS_DEC: "grid-rows-dec",
-};
+import { createContext, useReducer } from "react";
+import { GridDetails, StartNode, EndNode } from "../components/GridSettings";
 
 export const GridContext = createContext();
 
-const initialState = { numRows: 0, numCols: 0, cellSize: 40 };
+export const ACTIONS = {
+  GRID_ROWS_SET: "grid-rows-set",
+  GRID_COLS_SET: "grid-cols-set",
+  SET_START: "set-start",
+  SET_END: "set-end",
+};
+
+const initialState = {
+  numRows: GridDetails.numRows,
+  numCols: GridDetails.numCols,
+  cellSize: GridDetails.cellSize,
+  startPos: [StartNode.xLoc, StartNode.yLoc],
+  endPos: [EndNode.xLoc, EndNode.yLoc],
+};
 
 function reducer(state, action) {
-  console.log(action.type);
   switch (action.type) {
-    case ACTIONS.GRID_ROWS_INC:
-      return { ...state, numRows: state.numRows + 1 };
-    case ACTIONS.GRID_ROWS_DEC:
-      return { ...state, numRows: state.numRows - 1 };
-    case ACTIONS.GRID_COLS_INC:
-      return { ...state, numCols: state.numCols + 1 };
-    case ACTIONS.GRID_COLS_DEC:
-      return { ...state, numCols: state.numCols - 1 };
+    case ACTIONS.GRID_ROWS_SET:
+      return { ...state, numRows: parseInt(action.payload) };
+    case ACTIONS.GRID_COLS_SET:
+      return { ...state, numCols: parseInt(action.payload) };
+    case ACTIONS.SET_START:
+      return {
+        ...state,
+        startPos: [...action.payload],
+      };
+    case ACTIONS.SET_END:
+      return {
+        ...state,
+        endPos: [...action.payload],
+      };
     default:
       return state;
   }

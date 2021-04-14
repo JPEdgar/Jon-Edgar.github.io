@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 import MyPath from "../components/MyPath/MyPath";
 
 export default function Algos() {
-  const [algo, setAlgo] = useState("");
+  // const [algo, setAlgo] = useState("");
 
-  function handleClick(input) {
-    setAlgo(input);
-  }
+  // function handleClick(input) {
+  //   setAlgo(input);
+  // }
 
-  const handleComp = () => {
-    if (algo === "Pathing") {
-      return <MyPath />;
-    }
-  };
+  // const handleComp = () => {
+  //   if (algo === "Pathing") {
+  //     return <MyPath />;
+  //   }
+  // };
 
   return (
     <div className="test">
