@@ -16,7 +16,7 @@ export default function Algos() {
   // };
 
   return (
-    <div className="test">
+    <div className="projectBG">
       {/* <button onClick={() => handleClick("Pathing")}>Pathing Algoritm</button>
       <h3>{algo}</h3>
       {handleComp()} */}

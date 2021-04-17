@@ -25,6 +25,9 @@ function reducer(state, action) {
     case ACTIONS.GRID_COLS_SET:
       return { ...state, numCols: parseInt(action.payload) };
     case ACTIONS.SET_START:
+      // let element = document.getElementById(`${action.payload[0]}, ${action.payload[1]}`)
+      // element.classList.add("testing2")
+      // console.log(element)
       return {
         ...state,
         startPos: [...action.payload],

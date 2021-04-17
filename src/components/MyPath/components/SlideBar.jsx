@@ -27,7 +27,7 @@ export default function SlideBar({ id, label, max }) {
         <input
           id={`slider${id}`}
           type="range"
-          min={3}
+          min={4}
           max={max}
           value={item}
           step={1}

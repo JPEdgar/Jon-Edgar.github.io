@@ -1,18 +1,17 @@
-
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Algos from "./pages/Algos.jsx";
-import Projects from "./pages/Projects"
-import About from "./pages/About"
+import Projects from "./pages/Projects";
+import About from "./pages/About";
 
-import "./styles.css"
+import "./styles.css";
 
 export default function App() {
-  const [renderCount, setRenderCount] = useState(0)
+  const [renderCount, setRenderCount] = useState(0);
   useEffect(() => {
-    setRenderCount(curr => curr + 1)
-  },[])
+    setRenderCount((curr) => curr + 1);
+  }, []);
 
   return (
     <>

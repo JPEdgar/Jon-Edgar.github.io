@@ -1,6 +1,6 @@
 export const GridDetails = {
-  numRows: 5,
-  numCols: 5,
+  numRows: 10,
+  numCols: 10,
   cellSize: 30,
 };
 

@@ -1,3 +1,7 @@
+import React from "react";
+
+import "../pathStyles.css";
+
 // returns a 2d array
 export default function BuildGrid(state) {
   const grid = [];
@@ -9,23 +13,33 @@ export default function BuildGrid(state) {
   }
 
   function BuildCell(row, col) {
-    let bgColor = "lightgray";
+    const currClass = "grid";
+    let nodeClass = "";
+    let wasVisited;
+
     if (state.startPos[1] === row && state.startPos[0] === col) {
-      bgColor = "cyan";
+      nodeClass = currClass.concat(" startNode");
+      wasVisited = true;
     } else if (state.endPos[1] === row && state.endPos[0] === col) {
-      bgColor = "cornsilk";
+      nodeClass = currClass.concat(" endNode");
+      wasVisited = true;
+    } else {
+      nodeClass = currClass.concat(" unvisitedNode");
+      wasVisited = false;
     }
+
     return (
       <div
         key={`${col}, ${row}`}
         id={`${col}, ${row}`}
         x-loc={col}
         y-loc={row}
+        was-visited={wasVisited.toString()}
+        className={nodeClass}
         style={{
           height: "40px",
           width: "40px",
           border: "1px solid red",
-          backgroundColor: bgColor,
         }}
       >
         {col}, {row}

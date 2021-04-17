@@ -3,6 +3,8 @@ import React from "react";
 import Grid from "./components/Grid";
 import { GridProvider } from "./contexts/GridContext";
 
+import "./pathStyles.css"
+
 export default function MyPath() {
   return (
     <div>

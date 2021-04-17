@@ -1,0 +1,20 @@
+.grid {
+  height: 40px;
+  width: 40px;
+}
+
+.startNode {
+  background-color: cyan;
+}
+
+.endNode {
+  background-color: cornsilk;
+}
+
+.unvisitedNode {
+  background-color: lightgray;
+}
+
+.visitedNode {
+  background-color: rgb(80, 80, 255);
+}
