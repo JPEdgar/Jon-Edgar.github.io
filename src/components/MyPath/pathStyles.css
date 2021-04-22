@@ -16,5 +16,30 @@
 }
 
 .visitedNode {
-  background-color: #5050ff;
+  background-color: blue;
+  animation-name: visited;
+  animation-duration: 2s;
+}
+
+.pathNode {
+  background-color: orange;
+  animation-name: path;
+  animation-duration: 2s;
+}
+
+@keyframes visited {
+  from {
+    background-color: lightgrey;
+  }
+  to {
+    background-color: blue;
+  }
+}
+@keyframes path {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: orange;
+  }
 }

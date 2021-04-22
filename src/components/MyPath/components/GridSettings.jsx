@@ -6,10 +6,10 @@ export const GridDetails = {
 
 export const StartNode = {
   xLoc: 1,
-  yLoc: 3,
+  yLoc: 2,
 };
 
 export const EndNode = {
-  xLoc: 3,
-  yLoc: 1,
+  xLoc: 4,
+  yLoc: 4,
 };

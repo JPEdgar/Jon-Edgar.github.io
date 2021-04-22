@@ -1,4 +1,4 @@
-// returns an array of neighbors
+// returns [returnArr (array), continueSearch (bool), foundEnd (bool), luckyNode (array)];
 export default function FindNeighbor(startSpot, state) {
   // up (0, -1), right (+1, 0), down (0, +1), left (-1, 0)
   const neighborLocations = [
@@ -38,25 +38,22 @@ export default function FindNeighbor(startSpot, state) {
     if (element.classList.contains("startNode")) {
       //
     } else if (element.classList.contains("endNode")) {
-      //   console.log(`${searchSpot} is end node`);
+      console.log(`${searchPos} is end node`);
       continueSearch = false;
       foundEnd = true;
       luckyNode = searchPos;
+      element.setAttribute("parent-node", `${startSpot[0]}, ${startSpot[1]}`);
     } else if (element.getAttribute("was-visited") === "true") {
-      //   //
+      //
     } else if (element.classList.contains("wallNode")) {
-      //   //
+      //
     } else {
-      // temp section start
-      element.classList.remove("unvisitedNode");
-      element.classList.add("visitedNode");
-      // temp section end
+      // not a startNode, endNode, visitedNode, wall, or out-of-bounds
       element.setAttribute("was-visited", "true");
       element.setAttribute("parent-node", `${startSpot[0]}, ${startSpot[1]}`);
       returnArr.push(searchPos);
     }
   }
-
   return [returnArr, continueSearch, foundEnd, luckyNode];
 }
 

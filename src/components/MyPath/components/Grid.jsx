@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+
 import { GridContext, ACTIONS } from "../contexts/GridContext";
 import SlideBar from "../components/SlideBar";
 import BuildGrid from "../components/BuildGrid";
@@ -18,6 +19,7 @@ export default function Grid() {
   let searchNode = [];
   let isSearching = false;
   let searchArray = [];
+  const [searchCount, setSearchCount] = useState(0);
 
   // temp start
   const [renderCount, setRenderCount] = useState(0);
@@ -26,23 +28,30 @@ export default function Grid() {
   }, []);
   // temp end
 
+  // BuildGrid()
   useEffect(() => {
-    console.log("numrows, numcols, startpos, end pos changed");
     setGrid(BuildGrid(state));
     // eslint-disable-next-line
   }, [state.numRows, state.numCols, state.startPos, state.endPos]);
 
+  // AnimatedSearchNodes()
   useEffect(() => {
-    console.log(
-      `startSearchAnimation changed.  Now = ${startSearchedAnimation}`
-    );
     if (startSearchedAnimation) {
       AnimateSearchedNodes();
     } // eslint-disable-next-line
   }, [startSearchedAnimation]);
 
+  // FindPath()
+  useEffect(() => {
+    if (startAnim) {
+      const path = FindPath(); // returns list of children array
+      setTimeout(() => {
+        AnimatePath(path);
+      }, animDelay);
+    } // eslint-disable-next-line
+  }, [startAnim]);
+
   function AnimateSearchedNodes() {
-    console.log("in AnimateSearchedNodes function");
     const tempSearched = [...searchedNodes];
     let count = 0;
     const interval = setInterval(() => {
@@ -62,29 +71,15 @@ export default function Grid() {
     return () => clearInterval(interval);
   }
 
-  useEffect(() => {
-    console.log(`startAnim changed.  Now = ${startAnim}`);
-    if (startAnim) {
-      const path = FindPath(); // returns list of children array
-      console.log(path.length);
-
-      setTimeout(() => {
-        AnimatePath(path);
-      }, animDelay);
-    } // eslint-disable-next-line
-  }, [startAnim]);
-
   function FindPath() {
-    console.log("in FindPath function");
     const listOfChildren = [`${luckyNode[0]}, ${luckyNode[1]}`];
+
     let search = true;
     const start = state.startPos[0] + ", " + state.startPos[1];
-    // while (search) {
-    let i = 0;
-    while (i < 10 && search) {
-      i++;
+    while (search) {
       let parent = listOfChildren.slice(-1);
-      // eslint-disable-next-line
+
+      //   eslint-disable-next-line
       if (parent[0] == start) {
         search = false;
       } else {
@@ -99,8 +94,6 @@ export default function Grid() {
   }
 
   function AnimatePath(listOfChildren) {
-    console.log("in AnimatePath function.  Props = ");
-    console.log(listOfChildren);
     let i = listOfChildren.length;
     const start = state.startPos[0] + ", " + state.startPos[1];
     const interval = setInterval(() => {
@@ -110,10 +103,16 @@ export default function Grid() {
         // eslint-disable-next-line
         if (path != start) {
           const element = document.getElementById(path);
-          console.log("building path node");
-          console.log(element);
-          // const shorthand = ReactDOM.findDOMNode(element).classList;
-          // shorthand.add("pathNode");
+          const shorthand = ReactDOM.findDOMNode(element).classList;
+          if (
+            !shorthand.contains("endNode") &&
+            !shorthand.contains("startNode")
+          ) {
+            shorthand.add("pathNode");
+            //
+          } else {
+            //
+          }
         }
       }
     }, animDelay);
@@ -141,19 +140,24 @@ export default function Grid() {
 
   function SearchForNeighbors() {
     do {
+      // temp start
+      setSearchCount((curr) => curr + 1);
+      // temp end
+
       GetNeighbor();
     } while (isSearching);
   }
+
   function GetNeighbor() {
     let locatedEnd = false;
 
     if (searchArray.length <= 0 && !isSearching) {
+      // start search w/ startNode
       searchNode = [...state.startPos];
       isSearching = true;
     } else if (searchArray.length > 0) {
+      // continue search
       searchNode = searchArray.shift();
-    } else {
-      isSearching = false;
     }
 
     // console.log(`searchNode = ${searchNode}`)
@@ -164,8 +168,12 @@ export default function Grid() {
         foundEnd,
         returnLuckyNode,
       ] = FindNeighbor(searchNode, state); // return [returnArr (arr), continueSearch (bool), foundEnd (bool), luckyNode (arr)];
-      locatedEnd = foundEnd;
-      setLuckyNode(returnLuckyNode);
+
+      if (foundEnd) {
+        locatedEnd = foundEnd;
+        setLuckyNode(returnLuckyNode);
+        isSearching = false;
+      }
 
       if (continueSearch) {
         searchArray = searchArray.concat(searchResults);
@@ -179,12 +187,11 @@ export default function Grid() {
     if (locatedEnd) {
       setStartSearchedAnimation(true);
     }
-    // console.log(searchArray)
   }
-  console.log("- - - -")
 
   return (
     <>
+      <h3>Search Count = {searchCount}</h3>
       <h3>Grid Render Count = {renderCount}</h3>
       <section style={{ display: "flex" }}>
         <div>
