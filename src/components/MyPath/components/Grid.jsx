@@ -15,11 +15,11 @@ export default function Grid() {
   const [start, setStart] = useState(false);
   const [end, setEnd] = useState(false);
   const [startAnim, setStartAnim] = useState(false);
-  const animDelay = 50;
+  const [disableUI, setDisableUI] = useState(false);
+  const animDelay = 30;
   let searchNode = [];
   let isSearching = false;
   let searchArray = [];
-  const [disableUI, setDisableUI] = useState(false);
 
   // const [mouseDown, setMouseDown] = useState(false); // To keep code organized for what is mine and what isn't, this is only a reference but defined below
   const [drawWall, setDrawWall] = useState(false);
@@ -28,7 +28,13 @@ export default function Grid() {
   useEffect(() => {
     setGrid(BuildGrid(state));
     // eslint-disable-next-line
-  }, [state.numRows, state.numCols, state.startPos, state.endPos]);
+  }, [
+    state.numRows,
+    state.numCols,
+    state.startPos,
+    state.endPos,
+    state.cellSize,
+  ]);
 
   // AnimatedSearchNodes()
   useEffect(() => {
@@ -290,11 +296,12 @@ export default function Grid() {
   return (
     <>
       <section style={{ display: "flex" }}>
-        <div>
+        <div style={{ height: "50px" }}>
           <SlideBar
             enable={disableUI}
             id={1}
             label="Rows"
+            min={4}
             max={30}
             value={state.numRows}
             callback={state.numRows}
@@ -303,9 +310,19 @@ export default function Grid() {
             enable={disableUI}
             id={2}
             label="Cols"
+            min={4}
             max={30}
             value={state.numCols}
             callback={state.numCols}
+          />
+          <SlideBar
+            enable={disableUI}
+            id={3}
+            label="Size"
+            min={20}
+            max={40}
+            value={state.cellSize}
+            callback={state.cellSize}
           />
         </div>
 
@@ -366,7 +383,6 @@ export default function Grid() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                height: "40px",
               }}
             >
               {rows.map((cell) => {

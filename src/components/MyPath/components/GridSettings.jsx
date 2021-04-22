@@ -2,6 +2,7 @@ export const GridDetails = {
   numRows: 10,
   numCols: 10,
   cellSize: 30,
+  stroke: 0.75,
 };
 
 export const StartNode = {

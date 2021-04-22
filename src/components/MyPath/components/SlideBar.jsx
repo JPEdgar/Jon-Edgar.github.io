@@ -4,13 +4,15 @@
 import React, { useContext } from "react";
 import { GridContext, ACTIONS } from "../contexts/GridContext";
 
-export default function SlideBar({ id, label, max, enable }) {
+export default function SlideBar({ id, label, min, max, enable }) {
   const [state, dispatch] = useContext(GridContext);
   const handleChange = (e) => {
     if (label === "Rows") {
       dispatch({ type: ACTIONS.GRID_ROWS_SET, payload: e.target.value });
     } else if (label === "Cols") {
       dispatch({ type: ACTIONS.GRID_COLS_SET, payload: e.target.value });
+    }else if (label === "Size") {
+      dispatch({ type: ACTIONS.CELL_SIZE, payload: e.target.value });
     }
   };
 
@@ -19,6 +21,8 @@ export default function SlideBar({ id, label, max, enable }) {
     item = state.numRows;
   } else if (label === "Cols") {
     item = state.numCols;
+  }else if (label === "Size") {
+    item = state.cellSize;
   }
 
   return (
@@ -29,7 +33,7 @@ export default function SlideBar({ id, label, max, enable }) {
           hidden={enable}
           id={`slider${id}`}
           type="range"
-          min={4}
+          min={min}
           max={max}
           value={item}
           step={1}

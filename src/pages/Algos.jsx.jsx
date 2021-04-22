@@ -1,26 +1,25 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 
 import MyPath from "../components/MyPath/MyPath";
 
 export default function Algos() {
-  // const [algo, setAlgo] = useState("");
+  const [algo, setAlgo] = useState("Pathing");
 
-  // function handleClick(input) {
-  //   setAlgo(input);
-  // }
+  function handleClick(input) {
+    setAlgo(input);
+  }
 
-  // const handleComp = () => {
-  //   if (algo === "Pathing") {
-  //     return <MyPath />;
-  //   }
-  // };
+  const handleComp = () => {
+    if (algo === "Pathing") {
+      return <MyPath />;
+    }
+  };
 
   return (
     <div className="projectBG">
-      {/* <button onClick={() => handleClick("Pathing")}>Pathing Algoritm</button>
+      <button onClick={() => handleClick("Pathing")}>Pathing Algoritm</button>
       <h3>{algo}</h3>
-      {handleComp()} */}
-      <MyPath />
+      {handleComp()}
     </div>
   );
 }

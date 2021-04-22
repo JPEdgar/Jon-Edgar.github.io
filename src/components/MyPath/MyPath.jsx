@@ -9,8 +9,9 @@ export default function MyPath() {
   return (
     <div>
       <p>
-        This is my take on Dijkstra's algorithm. Beyond the general explination
-        of what it is, I did all of this by thinking about how to do it.
+        This project is my take on Dijkstra's algorithm. Beyond the general
+        explanation of what it is, I did all of this by thinking about how to do
+        it.
       </p>
       <p>
         This project was inspired by{" "}
@@ -22,6 +23,13 @@ export default function MyPath() {
           Clement Mihailescu's
         </a>{" "}
         page.
+      </p>
+      <p>
+        To use: left-click and drag to create walls. To remove walls,
+        left-click. You can drag to draw deleted walls. Use the sliders to
+        adjust the height/width of the grid, and click on the "Set Start" or
+        "Set End" button to re-position the start and end node. Click "Get Path"
+        to initiate the path finding algorithm.
       </p>
       <hr style={{ margin: "10px" }} />
       <GridProvider>

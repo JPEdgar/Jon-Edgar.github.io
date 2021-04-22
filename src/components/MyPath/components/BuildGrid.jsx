@@ -37,9 +37,9 @@ export default function BuildGrid(state) {
         was-visited={wasVisited.toString()}
         className={nodeClass}
         style={{
-          height: "40px",
-          width: "40px",
-          border: "1px solid red",
+          height: state.cellSize,
+          width: state.cellSize,
+          border: `${state.stroke}px solid red`,
         }}
       >
         {/* {col}, {row} */}
