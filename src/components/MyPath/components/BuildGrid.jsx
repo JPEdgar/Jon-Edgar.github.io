@@ -42,7 +42,7 @@ export default function BuildGrid(state) {
           border: "1px solid red",
         }}
       >
-        {col}, {row}
+        {/* {col}, {row} */}
       </div>
     );
   }

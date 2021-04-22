@@ -27,6 +27,10 @@
   animation-duration: 2s;
 }
 
+.wallNode {
+  background-color: darkgray;
+}
+
 @keyframes visited {
   from {
     background-color: lightgrey;

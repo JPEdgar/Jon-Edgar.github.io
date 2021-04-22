@@ -19,14 +19,10 @@ export default function Grid() {
   let searchNode = [];
   let isSearching = false;
   let searchArray = [];
-  const [searchCount, setSearchCount] = useState(0);
+  const [disableUI, setDisableUI] = useState(false);
 
-  // temp start
-  const [renderCount, setRenderCount] = useState(0);
-  useEffect(() => {
-    setRenderCount((curr) => curr + 1);
-  }, []);
-  // temp end
+  // const [mouseDown, setMouseDown] = useState(false); // To keep code organized for what is mine and what isn't, this is only a reference but defined below
+  const [drawWall, setDrawWall] = useState(false);
 
   // BuildGrid()
   useEffect(() => {
@@ -134,16 +130,13 @@ export default function Grid() {
     } else {
       // console.log(e.target.id); // string "#, #"
       // console.log(clickLocation); // array [number, number]
-      console.log(e.target);
+      // console.log(e.target);
     }
   }
 
   function SearchForNeighbors() {
+    setDisableUI(true);
     do {
-      // temp start
-      setSearchCount((curr) => curr + 1);
-      // temp end
-
       GetNeighbor();
     } while (isSearching);
   }
@@ -158,6 +151,9 @@ export default function Grid() {
     } else if (searchArray.length > 0) {
       // continue search
       searchNode = searchArray.shift();
+    } else {
+      // no end located
+      isSearching = false;
     }
 
     // console.log(`searchNode = ${searchNode}`)
@@ -189,13 +185,114 @@ export default function Grid() {
     }
   }
 
+  ////// start section - pieces/foundation of this code located at:
+  // https://gist.github.com/dimitrinicolas/f8768ae7b664b6259eb923157b16d4fc
+  // then modified to work with what I had in mind.
+
+  const [mouseDown, setMouseDown] = useState(false);
+
+  // initial setup for click
+  useEffect(() => {
+    const handleDocumentMouseUp = (event) => {
+      if (event.button !== 2) {
+        setTimeout(() => setMouseDown(false), 10);
+      }
+    };
+
+    document.addEventListener("mouseup", handleDocumentMouseUp);
+    return () => {
+      document.removeEventListener("mouseup", handleDocumentMouseUp);
+    };
+  }, []);
+
+  const handleMouseDown = (event) => {
+    const element = document.getElementById(event.target.id);
+    const shorthand = ReactDOM.findDOMNode(element).classList;
+
+    if (event.button !== 2) {
+      setMouseDown(true);
+    }
+
+    let tempDraw = false;
+    if (shorthand.contains("wallNode")) {
+      setDrawWall(false);
+    } else {
+      setDrawWall(true);
+      tempDraw = true;
+    }
+
+    handleWall(shorthand, tempDraw);
+  };
+
+  const handleMouseEnter = (event) => {
+    if (event.button !== 2 && mouseDown) {
+      const element = document.getElementById(event.target.id);
+      const shorthand = ReactDOM.findDOMNode(element).classList;
+      handleWall(shorthand);
+    }
+  };
+
+  const handleMouseUp = (event) => {
+    if (event.button !== 2) {
+      setMouseDown(false);
+
+      if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+      }
+    }
+  };
+
+  //
+  ////// section end
+
+  function handleWall(shorthand, override = null) {
+    if (shorthand.contains("startNode") || shorthand.contains("endNode")) {
+      return;
+    }
+    if (override != null) {
+      if (override) {
+        shorthand.add("wallNode");
+      } else {
+        shorthand.remove("wallNode");
+      }
+    } else {
+      // if user wants to add a wall and the node DOESN'T have a wallNode
+      if (drawWall && !shorthand.contains("wallNode")) {
+        shorthand.add("wallNode");
+      }
+      // if the user wants to remove a wall but the node DOES have a wallNode
+      else if (!drawWall && shorthand.contains("wallNode")) {
+        shorthand.remove("wallNode");
+      }
+    }
+  }
+
+  function Reset() {
+    // const [state, dispatch] = useContext(GridContext);
+    dispatch({ type: ACTIONS.RESET });
+
+    // const [grid, setGrid] = useState(BuildGrid(state));
+    setGrid(BuildGrid(state));
+
+    setStartSearchedAnimation(false);
+    setSearchedNodes([]);
+    setLuckyNode([]);
+    setStart(false);
+    setEnd(false);
+    setStartAnim(false);
+    setDisableUI(false);
+
+    searchNode = [];
+    isSearching = false;
+    searchArray = [];
+  }
+
   return (
     <>
-      <h3>Search Count = {searchCount}</h3>
-      <h3>Grid Render Count = {renderCount}</h3>
       <section style={{ display: "flex" }}>
         <div>
           <SlideBar
+            enable={disableUI}
             id={1}
             label="Rows"
             max={30}
@@ -203,6 +300,7 @@ export default function Grid() {
             callback={state.numRows}
           />
           <SlideBar
+            enable={disableUI}
             id={2}
             label="Cols"
             max={30}
@@ -212,6 +310,8 @@ export default function Grid() {
         </div>
 
         <button
+          disabled={disableUI}
+          hidden={disableUI}
           style={{
             height: "40px",
             width: "100px",
@@ -224,6 +324,8 @@ export default function Grid() {
         </button>
 
         <button
+          disabled={disableUI}
+          hidden={disableUI}
           style={{
             height: "40px",
             width: "100px",
@@ -236,10 +338,20 @@ export default function Grid() {
         </button>
 
         <button
+          disabled={disableUI}
+          hidden={disableUI}
           onClick={() => SearchForNeighbors()}
           style={{ height: "40px", width: "100px", marginLeft: "10px" }}
         >
           Get Path
+        </button>
+        <button
+          disabled={!disableUI}
+          hidden={!disableUI}
+          onClick={() => Reset()}
+          style={{ height: "40px", width: "100px", marginLeft: "10px" }}
+        >
+          Reset
         </button>
       </section>
       <br />
@@ -258,7 +370,15 @@ export default function Grid() {
               }}
             >
               {rows.map((cell) => {
-                return <>{cell}</>;
+                return (
+                  <div
+                    onMouseDown={handleMouseDown}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseUp={handleMouseUp}
+                  >
+                    {cell}
+                  </div>
+                );
               })}
             </div>
           );

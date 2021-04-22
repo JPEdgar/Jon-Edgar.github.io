@@ -4,7 +4,7 @@
 import React, { useContext } from "react";
 import { GridContext, ACTIONS } from "../contexts/GridContext";
 
-export default function SlideBar({ id, label, max }) {
+export default function SlideBar({ id, label, max, enable }) {
   const [state, dispatch] = useContext(GridContext);
   const handleChange = (e) => {
     if (label === "Rows") {
@@ -25,6 +25,8 @@ export default function SlideBar({ id, label, max }) {
     <>
       <form>
         <input
+          disabled={enable}
+          hidden={enable}
           id={`slider${id}`}
           type="range"
           min={4}
@@ -33,7 +35,7 @@ export default function SlideBar({ id, label, max }) {
           step={1}
           onChange={handleChange}
         />
-        <label htmlFor={`slider${id}`}>
+        <label htmlFor={`slider${id}`} hidden={enable}>
           {item} {label}
         </label>
       </form>

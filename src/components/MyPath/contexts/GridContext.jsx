@@ -8,6 +8,7 @@ export const ACTIONS = {
   GRID_COLS_SET: "grid-cols-set",
   SET_START: "set-start",
   SET_END: "set-end",
+  RESET: "reset",
 };
 
 const initialState = {
@@ -36,6 +37,11 @@ function reducer(state, action) {
       return {
         ...state,
         endPos: [...action.payload],
+      };
+    case ACTIONS.RESET:
+      console.log("here");
+      return {
+        ...state,
       };
     default:
       return state;
