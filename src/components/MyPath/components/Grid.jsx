@@ -12,8 +12,6 @@ export default function Grid() {
   const [startSearchedAnimation, setStartSearchedAnimation] = useState(false);
   const [searchedNodes, setSearchedNodes] = useState([]);
   const [luckyNode, setLuckyNode] = useState([]); // the node that found the end.
-  const [start, setStart] = useState(false);
-  const [end, setEnd] = useState(false);
   const [startAnim, setStartAnim] = useState(false);
   const [disableUI, setDisableUI] = useState(false);
   const animDelay = 30;
@@ -22,7 +20,6 @@ export default function Grid() {
   let searchArray = [];
 
   // const [mouseDown, setMouseDown] = useState(false); // To keep code organized for what is mine and what isn't, this is only a reference but defined below
-  const [drawWall, setDrawWall] = useState(false);
 
   // BuildGrid()
   useEffect(() => {
@@ -127,12 +124,24 @@ export default function Grid() {
       parseInt(e.target.getAttribute("y-loc")),
     ];
 
-    if (start) {
-      dispatch({ type: ACTIONS.SET_START, payload: clickLocation });
-      setStart(false);
-    } else if (end) {
-      dispatch({ type: ACTIONS.SET_END, payload: clickLocation });
-      setEnd(false);
+    if (state.setStart) {
+      dispatch({
+        type: ACTIONS.SET_START,
+        payload: clickLocation,
+      });
+      dispatch({
+        type: ACTIONS.TOGGLE_START,
+        payload: false,
+      });
+    } else if (state.setEnd) {
+      dispatch({
+        type: ACTIONS.SET_END,
+        payload: clickLocation,
+      });
+      dispatch({
+        type: ACTIONS.TOGGLE_END,
+        payload: false,
+      });
     } else {
       // console.log(e.target.id); // string "#, #"
       // console.log(clickLocation); // array [number, number]
@@ -221,9 +230,10 @@ export default function Grid() {
 
     let tempDraw = false;
     if (shorthand.contains("wallNode")) {
-      setDrawWall(false);
+      dispatch({type: ACTIONS.DRAW_WALL, payload: false})
+      
     } else {
-      setDrawWall(true);
+      dispatch({type: ACTIONS.DRAW_WALL, payload: true})
       tempDraw = true;
     }
 
@@ -263,11 +273,11 @@ export default function Grid() {
       }
     } else {
       // if user wants to add a wall and the node DOESN'T have a wallNode
-      if (drawWall && !shorthand.contains("wallNode")) {
+      if (state.setDrawWall && !shorthand.contains("wallNode")) {
         shorthand.add("wallNode");
       }
       // if the user wants to remove a wall but the node DOES have a wallNode
-      else if (!drawWall && shorthand.contains("wallNode")) {
+      else if (!state.setDrawWall && shorthand.contains("wallNode")) {
         shorthand.remove("wallNode");
       }
     }
@@ -283,8 +293,6 @@ export default function Grid() {
     setStartSearchedAnimation(false);
     setSearchedNodes([]);
     setLuckyNode([]);
-    setStart(false);
-    setEnd(false);
     setStartAnim(false);
     setDisableUI(false);
 
@@ -333,9 +341,14 @@ export default function Grid() {
             height: "40px",
             width: "100px",
             marginLeft: "10px",
-            backgroundColor: start ? "cyan" : "",
+            backgroundColor: state.setStart ? "cyan" : "",
           }}
-          onClick={() => setStart(!start)}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.TOGGLE_START,
+              payload: !state.setStart,
+            })
+          }
         >
           Set Start
         </button>
@@ -347,9 +360,14 @@ export default function Grid() {
             height: "40px",
             width: "100px",
             marginLeft: "10px",
-            backgroundColor: end ? "cornsilk" : "",
+            backgroundColor: state.setEnd ? "cornsilk" : "",
           }}
-          onClick={() => setEnd(!end)}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.TOGGLE_END,
+              payload: !state.setEnd,
+            })
+          }
         >
           Set End
         </button>
