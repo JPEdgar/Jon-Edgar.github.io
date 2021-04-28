@@ -2,25 +2,16 @@
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
-  background-color: pink;
-}
-
-html {
-  background-color: orange;
 }
 
 body {
   font-size: 1.1rem;
   padding: 25px 10vw;
-  background-color: green;
-}
-
-footer {
-  background-color: white;
 }
 
 nav {
   height: 50px;
+  margin-bottom: 10px;
 }
 
 ul {
@@ -40,6 +31,7 @@ li {
 a {
   text-decoration: none;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
 a:hover {
@@ -70,6 +62,15 @@ button {
   padding: 10px 0px;
 }
 
-.header {
+.myName {
   font-size: 3rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.main {
+  background-color: #bed5d6;
+  padding: 10px 30px;
 }

@@ -94,8 +94,6 @@ function reducer(state, action) {
 
     //
     case ACTIONS.RESET:
-      console.log("here");
-      console.log(GridDetails.numRows);
       return {
         ...state, // grid states
         numRows: GridDetails.numRows,

@@ -10,7 +10,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 export default function App() {
   return (
-    <>
+    <div className="main">
       <header
         style={{
           display: "flex",
@@ -19,13 +19,15 @@ export default function App() {
           height: "100px",
         }}
       >
-        <div className="header">Jonathon Edgar</div>
-        <a 
-        
-        target="_blank"
-        rel="noreferrer"
-        href="https://github.com/JPEdgar/"
-        className="fab fa-github" style={{fontSize:"1.2rem"}} >GitHub</a>
+        <div className="header myName">Jonathon Edgar</div>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/JPEdgar/"
+          className="fab fa-github header icon"
+        >
+          GitHub
+        </a>
       </header>
 
       <Router>
@@ -60,6 +62,6 @@ export default function App() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }

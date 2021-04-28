@@ -9,7 +9,6 @@ import FindNeighbor from "../algorithms/FindNeighbor";
 export default function Grid() {
   const [state, dispatch] = useContext(GridContext);
   const [grid, setGrid] = useState(BuildGrid(state));
-  // const animDelay = 30;
   let searchNode = [];
   let isSearching = false;
   let searchArray = [];
@@ -220,6 +219,9 @@ export default function Grid() {
   }, []);
 
   const handleMouseDown = (event) => {
+    if (state.setStart || state.setEnd) {
+      return;
+    }
     const element = document.getElementById(event.target.id);
     const shorthand = ReactDOM.findDOMNode(element).classList;
 
@@ -239,6 +241,9 @@ export default function Grid() {
   };
 
   const handleMouseEnter = (event) => {
+    if (state.setStart || state.setEnd) {
+      return;
+    }
     if (event.button !== 2 && mouseDown) {
       const element = document.getElementById(event.target.id);
       const shorthand = ReactDOM.findDOMNode(element).classList;
@@ -282,16 +287,8 @@ export default function Grid() {
   }
 
   function Reset() {
-    // const [state, dispatch] = useContext(GridContext);
     dispatch({ type: ACTIONS.RESET });
-
-    dispatch({ type: ACTIONS.START_SEARCH_ANIMATIONS, payload: false });
-    dispatch({ type: ACTIONS.LUCKY_NODE, payload: [] });
-    dispatch({ type: ACTIONS.SEARCHED_NODES, payload: [] });
-    dispatch({ type: ACTIONS.START_ANIM, payload: false });
-    dispatch({ type: ACTIONS.DISABLE_UI, payload: false });
-    // const [grid, setGrid] = useState(BuildGrid(state));
-    setGrid(BuildGrid(state));
+    setGrid([]);
     searchNode = [];
     isSearching = false;
     searchArray = [];

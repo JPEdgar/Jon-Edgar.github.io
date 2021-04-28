@@ -2,27 +2,30 @@
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
-  // background-color: rgb(240, 240, 240);
-  background-color: pink;
+
+  // background-color: pink;
+  // background-color: white;
 }
 
 html {
-  background-color: orange;
+  // background-color: orange;
+  // background-color: white;
+}
+
+header {
+  // background-color: blue;
 }
 
 body {
   font-size: 1.1rem;
   padding: 25px 10vw;
+  // background-color: green;
   // background-color: white;
-  background-color: green;
-}
-
-footer {
-  background-color: white;
 }
 
 nav {
   height: 50px;
+  margin-bottom: 10px;
 }
 
 ul {
@@ -31,6 +34,8 @@ ul {
 }
 
 li {
+  // background-color: yellow;
+
   display: flex;
   height: 100%;
   width: 100%;
@@ -45,6 +50,7 @@ li {
 a {
   text-decoration: none;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 a:hover {
   transform: scale(1.15);
@@ -61,6 +67,7 @@ button {
 }
 
 .nav {
+  // background-color: yellow;
   color: blue;
 }
 
@@ -73,6 +80,20 @@ button {
   font-size: 2rem;
   padding: 10px 0px;
 }
+
 .header {
+  // background-color: blue;
+}
+
+.myName {
   font-size: 3rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.main {
+  background-color: rgb(190, 213, 214);
+  padding: 10px 30px;
 }
