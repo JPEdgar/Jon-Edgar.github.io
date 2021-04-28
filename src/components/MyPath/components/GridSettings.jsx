@@ -3,6 +3,7 @@ export const GridDetails = {
   numCols: 10,
   cellSize: 30,
   stroke: 0.75,
+  animationDelay: 30,
 };
 
 export const StartNode = {

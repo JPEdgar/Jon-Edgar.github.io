@@ -25,13 +25,12 @@ export default function MyPath() {
         page.
       </p>
       <p>
-        To use: left-click and drag to create walls. To remove walls,
-        left-click. You can drag to draw deleted walls. Use the sliders to
-        adjust the height/width of the grid, and click on the "Set Start" or
-        "Set End" button to re-position the start and end node. Click "Get Path"
+        To use: Left-click and drag to create/remove walls.  Use the sliders to
+        adjust the height/width/scale of the grid, and click on the "Set Start" or
+        "Set End" button then click on the grid to re-position the start/end node. Click "Get Path"
         to initiate the path finding algorithm.
       </p>
-      <hr style={{ margin: "10px" }} />
+      <hr style={{ margin: "10px 0px" }} />
       <GridProvider>
         <Grid />
       </GridProvider>

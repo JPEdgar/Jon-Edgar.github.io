@@ -2,23 +2,33 @@ import React from "react";
 
 export default function Projects() {
   return (
-    <div className="projectBG">
+    <div>
+      <h3 className="subjectTitle">Projects</h3>
       <p>JPEdgar.com (in progress)</p>
-      <img alt="placeholder"></img>
+      <img src="https://picsum.photos/200/300" alt="placeholder"></img>
       <p>
         JPEdgar.com is my author website. This project was designed initially
         with templates from webs.com, but I've been working on redesigning this
-        project for front-end and back-end development.
+        project from scratch.
       </p>
       <p>
         This project utilizes front-end and back-end development with
         authentication for blog control.
       </p>
       <p>
-        The website is written in Javascript using React, React Router, React
-        Bootstrap, Bootstrap Social, JSON server, font-awesome, and editor.js.
+        Technologies used: React written in Javascript, React Router, React
+        Bootstrap, Bootstrap Social, JSON server, font-awesome, editor.js, and
+        Firebase.
       </p>
-      <p>GitHub link: https://github.com/JPEdgar/JPEdgar.com.git</p>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://github.com/JPEdgar/JPEdgar.com.git"
+        className="fab fa-github"
+        style={{ fontSize: "1.2rem" }}
+      >
+        GitHub
+      </a>
     </div>
   );
 }

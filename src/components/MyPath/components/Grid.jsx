@@ -9,12 +9,7 @@ import FindNeighbor from "../algorithms/FindNeighbor";
 export default function Grid() {
   const [state, dispatch] = useContext(GridContext);
   const [grid, setGrid] = useState(BuildGrid(state));
-  const [startSearchedAnimation, setStartSearchedAnimation] = useState(false);
-  const [searchedNodes, setSearchedNodes] = useState([]);
-  const [luckyNode, setLuckyNode] = useState([]); // the node that found the end.
-  const [startAnim, setStartAnim] = useState(false);
-  const [disableUI, setDisableUI] = useState(false);
-  const animDelay = 30;
+  // const animDelay = 30;
   let searchNode = [];
   let isSearching = false;
   let searchArray = [];
@@ -35,26 +30,26 @@ export default function Grid() {
 
   // AnimatedSearchNodes()
   useEffect(() => {
-    if (startSearchedAnimation) {
+    if (state.startSearchedAnimation) {
       AnimateSearchedNodes();
     } // eslint-disable-next-line
-  }, [startSearchedAnimation]);
+  }, [state.startSearchedAnimation]);
 
   // FindPath()
   useEffect(() => {
-    if (startAnim) {
+    if (state.startAnim) {
       const path = FindPath(); // returns list of children array
       setTimeout(() => {
         AnimatePath(path);
-      }, animDelay);
+      }, state.animationDelay);
     } // eslint-disable-next-line
-  }, [startAnim]);
+  }, [state.startAnim]);
 
   function AnimateSearchedNodes() {
-    const tempSearched = [...searchedNodes];
+    const tempSearched = [...state.searchedNodes];
     let count = 0;
     const interval = setInterval(() => {
-      if (count < searchedNodes.length) {
+      if (count < state.searchedNodes.length) {
         const activeNode = tempSearched.shift();
         const element = document.getElementById(
           `${activeNode[0]}, ${activeNode[1]}`
@@ -62,16 +57,16 @@ export default function Grid() {
         const shorthand = ReactDOM.findDOMNode(element).classList;
         shorthand.add("visitedNode");
       } else {
-        setStartAnim(true);
+        dispatch({ type: ACTIONS.START_ANIM, payload: true });
         clearInterval(interval);
       }
       count++;
-    }, animDelay);
+    }, state.animationDelay);
     return () => clearInterval(interval);
   }
 
   function FindPath() {
-    const listOfChildren = [`${luckyNode[0]}, ${luckyNode[1]}`];
+    const listOfChildren = [`${state.luckyNode[0]}, ${state.luckyNode[1]}`];
 
     let search = true;
     const start = state.startPos[0] + ", " + state.startPos[1];
@@ -114,7 +109,7 @@ export default function Grid() {
           }
         }
       }
-    }, animDelay);
+    }, state.animationDelay);
     return () => clearInterval(interval);
   }
 
@@ -145,12 +140,11 @@ export default function Grid() {
     } else {
       // console.log(e.target.id); // string "#, #"
       // console.log(clickLocation); // array [number, number]
-      // console.log(e.target);
     }
   }
 
   function SearchForNeighbors() {
-    setDisableUI(true);
+    dispatch({ type: ACTIONS.DISABLE_UI, payload: true });
     do {
       GetNeighbor();
     } while (isSearching);
@@ -171,7 +165,6 @@ export default function Grid() {
       isSearching = false;
     }
 
-    // console.log(`searchNode = ${searchNode}`)
     if (searchNode.length > 0) {
       const [
         searchResults,
@@ -182,21 +175,27 @@ export default function Grid() {
 
       if (foundEnd) {
         locatedEnd = foundEnd;
-        setLuckyNode(returnLuckyNode);
+        dispatch({ type: ACTIONS.LUCKY_NODE, payload: returnLuckyNode });
         isSearching = false;
       }
 
       if (continueSearch) {
         searchArray = searchArray.concat(searchResults);
-        setSearchedNodes((curr) => curr.concat(searchResults));
+        dispatch({
+          type: ACTIONS.SEARCHED_NODES,
+          payload: searchResults,
+        });
       } else {
         searchArray = searchResults;
-        setSearchedNodes((curr) => curr.concat(searchResults));
+        dispatch({
+          type: ACTIONS.SEARCHED_NODES,
+          payload: searchResults,
+        });
       }
     }
 
     if (locatedEnd) {
-      setStartSearchedAnimation(true);
+      dispatch({ type: ACTIONS.START_SEARCH_ANIMATIONS, payload: true });
     }
   }
 
@@ -230,10 +229,9 @@ export default function Grid() {
 
     let tempDraw = false;
     if (shorthand.contains("wallNode")) {
-      dispatch({type: ACTIONS.DRAW_WALL, payload: false})
-      
+      dispatch({ type: ACTIONS.DRAW_WALL, payload: false });
     } else {
-      dispatch({type: ACTIONS.DRAW_WALL, payload: true})
+      dispatch({ type: ACTIONS.DRAW_WALL, payload: true });
       tempDraw = true;
     }
 
@@ -287,15 +285,13 @@ export default function Grid() {
     // const [state, dispatch] = useContext(GridContext);
     dispatch({ type: ACTIONS.RESET });
 
+    dispatch({ type: ACTIONS.START_SEARCH_ANIMATIONS, payload: false });
+    dispatch({ type: ACTIONS.LUCKY_NODE, payload: [] });
+    dispatch({ type: ACTIONS.SEARCHED_NODES, payload: [] });
+    dispatch({ type: ACTIONS.START_ANIM, payload: false });
+    dispatch({ type: ACTIONS.DISABLE_UI, payload: false });
     // const [grid, setGrid] = useState(BuildGrid(state));
     setGrid(BuildGrid(state));
-
-    setStartSearchedAnimation(false);
-    setSearchedNodes([]);
-    setLuckyNode([]);
-    setStartAnim(false);
-    setDisableUI(false);
-
     searchNode = [];
     isSearching = false;
     searchArray = [];
@@ -304,39 +300,52 @@ export default function Grid() {
   return (
     <>
       <section style={{ display: "flex" }}>
-        <div style={{ height: "50px" }}>
+        <div style={{ height: "80px", width: "275px" }}>
           <SlideBar
-            enable={disableUI}
+            enable={state.disableUI}
             id={1}
             label="Rows"
             min={4}
             max={30}
+            step={1}
             value={state.numRows}
             callback={state.numRows}
           />
           <SlideBar
-            enable={disableUI}
+            enable={state.disableUI}
             id={2}
             label="Cols"
             min={4}
             max={30}
+            step={1}
             value={state.numCols}
             callback={state.numCols}
           />
           <SlideBar
-            enable={disableUI}
+            enable={state.disableUI}
             id={3}
             label="Size"
             min={20}
             max={40}
+            step={1}
             value={state.cellSize}
             callback={state.cellSize}
+          />
+          <SlideBar
+            enable={state.disableUI}
+            id={4}
+            label="Animation Speed"
+            min={1}
+            max={3}
+            step={1}
+            value={state.animationDelay}
+            callback={state.animationDelay}
           />
         </div>
 
         <button
-          disabled={disableUI}
-          hidden={disableUI}
+          disabled={state.disableUI}
+          hidden={state.disableUI}
           style={{
             height: "40px",
             width: "100px",
@@ -354,8 +363,8 @@ export default function Grid() {
         </button>
 
         <button
-          disabled={disableUI}
-          hidden={disableUI}
+          disabled={state.disableUI}
+          hidden={state.disableUI}
           style={{
             height: "40px",
             width: "100px",
@@ -373,16 +382,16 @@ export default function Grid() {
         </button>
 
         <button
-          disabled={disableUI}
-          hidden={disableUI}
+          disabled={state.disableUI}
+          hidden={state.disableUI}
           onClick={() => SearchForNeighbors()}
           style={{ height: "40px", width: "100px", marginLeft: "10px" }}
         >
           Get Path
         </button>
         <button
-          disabled={!disableUI}
-          hidden={!disableUI}
+          disabled={!state.disableUI}
+          hidden={!state.disableUI}
           onClick={() => Reset()}
           style={{ height: "40px", width: "100px", marginLeft: "10px" }}
         >
@@ -398,6 +407,7 @@ export default function Grid() {
         {grid.map((rows) => {
           return (
             <div
+              // key={Math.random(0, 1) * 1000}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -406,6 +416,7 @@ export default function Grid() {
               {rows.map((cell) => {
                 return (
                   <div
+                    // key={Math.random(0, 1) * 1000}
                     onMouseDown={handleMouseDown}
                     onMouseEnter={handleMouseEnter}
                     onMouseUp={handleMouseUp}

@@ -6,21 +6,45 @@ import About from "./pages/About";
 
 import "./styles.css";
 
+import "@fortawesome/fontawesome-free/css/all.css";
+
 export default function App() {
   return (
     <>
-      <header>Jonathon Edgar</header>
+      <header
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          height: "100px",
+        }}
+      >
+        <div className="header">Jonathon Edgar</div>
+        <a 
+        
+        target="_blank"
+        rel="noreferrer"
+        href="https://github.com/JPEdgar/"
+        className="fab fa-github" style={{fontSize:"1.2rem"}} >GitHub</a>
+      </header>
+
       <Router>
         <nav>
           <ul>
             <li>
-              <Link to="/">Algorithms</Link>
+              <Link className="nav" to="/">
+                Algorithms
+              </Link>
             </li>
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link className="nav" to="/projects">
+                Projects
+              </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link className="nav" to="/about">
+                About
+              </Link>
             </li>
           </ul>
         </nav>

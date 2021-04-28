@@ -38,7 +38,7 @@ export default function FindNeighbor(startSpot, state) {
     if (element.classList.contains("startNode")) {
       //
     } else if (element.classList.contains("endNode")) {
-      console.log(`${searchPos} is end node`);
+      // console.log(`${searchPos} is end node`);
       continueSearch = false;
       foundEnd = true;
       luckyNode = searchPos;
