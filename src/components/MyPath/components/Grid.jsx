@@ -150,7 +150,6 @@ export default function Grid() {
   }
 
   function GetNeighbor() {
-    console.log(state.locatedEnd);
     let locatedEnd = false;
 
     if (searchArray.length <= 0 && !isSearching) {
