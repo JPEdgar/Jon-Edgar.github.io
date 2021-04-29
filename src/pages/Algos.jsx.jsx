@@ -17,7 +17,7 @@ export default function Algos() {
 
   return (
     <div>
-      <button onClick={() => handleClick("Pathing")}>Pathing Algoritm</button>
+      <button style={{width: "150px"}}onClick={() => handleClick("Pathing")}>Pathing Algoritm</button>
       <h3 className="subjectTitle">{algo}</h3>
       {handleComp()}
     </div>

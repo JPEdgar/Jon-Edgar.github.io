@@ -1,49 +1,56 @@
+$startNode: red;
+$endNode: blue;
+$unvisitedNode: lightgray;
+$visitedNode: purple;
+$pathNode: yellow;
+$wallNode: darkgray;
+
 .grid {
   height: 40px;
   width: 40px;
 }
 
 .startNode {
-  background-color: cyan;
+  background-color: $startNode;
 }
 
 .endNode {
-  background-color: cornsilk;
+  background-color: $endNode;
 }
 
 .unvisitedNode {
-  background-color: lightgray;
+  background-color: $unvisitedNode;
 }
 
 .visitedNode {
-  background-color: blue;
+  background-color: $visitedNode;
   animation-name: visited;
   animation-duration: 2s;
 }
 
 .pathNode {
-  background-color: orange;
+  background-color: $pathNode;
   animation-name: path;
   animation-duration: 2s;
 }
 
 .wallNode {
-  background-color: darkgray;
+  background-color: $wallNode;
 }
 
 @keyframes visited {
   from {
-    background-color: lightgrey;
+    background-color: $unvisitedNode;
   }
   to {
-    background-color: blue;
+    background-color: $visitedNode;
   }
 }
 @keyframes path {
   from {
-    background-color: blue;
+    background-color: $visitedNode;
   }
   to {
-    background-color: orange;
+    background-color: $pathNode;
   }
 }

@@ -26,7 +26,7 @@ export default function App() {
           href="https://github.com/JPEdgar/"
           className="fab fa-github header icon"
         >
-          GitHub
+          {" "}GitHub
         </a>
       </header>
 

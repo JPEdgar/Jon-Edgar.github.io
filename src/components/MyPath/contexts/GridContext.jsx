@@ -18,6 +18,7 @@ export const ACTIONS = {
   START_SEARCH_ANIMATIONS: "start-search-animation",
   LUCKY_NODE: "lucky-node",
   ANIMATION_DELAY: "animation-delay",
+  NO_END: "no-end",
 };
 
 const initialState = {
@@ -42,6 +43,7 @@ const initialState = {
   animationDelay: 25,
   searchedNodes: [],
   startSearchedAnimation: false,
+  noEnd: false,
   luckyNode: [], // the node that found the end.
 };
 
@@ -116,6 +118,7 @@ function reducer(state, action) {
         animationDelay: 25,
         searchedNodes: [],
         startSearchedAnimation: false,
+        noEnd: false,
         luckyNode: [], // the node that found the end.
       };
 
@@ -150,6 +153,8 @@ function reducer(state, action) {
         ...state,
         animationDelay: action.payload * 25,
       };
+    case ACTIONS.NO_END:
+      return { ...state, noEnd: action.payload };
     //
     default:
       return state;

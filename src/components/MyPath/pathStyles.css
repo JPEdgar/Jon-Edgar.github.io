@@ -4,11 +4,11 @@
 }
 
 .startNode {
-  background-color: cyan;
+  background-color: red;
 }
 
 .endNode {
-  background-color: cornsilk;
+  background-color: blue;
 }
 
 .unvisitedNode {
@@ -16,13 +16,13 @@
 }
 
 .visitedNode {
-  background-color: blue;
+  background-color: purple;
   animation-name: visited;
   animation-duration: 2s;
 }
 
 .pathNode {
-  background-color: orange;
+  background-color: yellow;
   animation-name: path;
   animation-duration: 2s;
 }
@@ -33,17 +33,17 @@
 
 @keyframes visited {
   from {
-    background-color: lightgrey;
+    background-color: lightgray;
   }
   to {
-    background-color: blue;
+    background-color: purple;
   }
 }
 @keyframes path {
   from {
-    background-color: blue;
+    background-color: purple;
   }
   to {
-    background-color: orange;
+    background-color: yellow;
   }
 }

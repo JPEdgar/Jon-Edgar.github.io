@@ -43,6 +43,7 @@ export default function SlideBar({ id, label, min, max, step, enable }) {
     <>
       <form>
         <input
+          className="slider"
           disabled={enable}
           hidden={enable}
           id={`slider${id}`}
@@ -54,11 +55,12 @@ export default function SlideBar({ id, label, min, max, step, enable }) {
           onChange={handleChange}
         />
         <label
+      
           htmlFor={`slider${id}`}
           hidden={enable}
           style={{ fontSize: "1rem" }}
         >
-          {override ? `${overrideText}` : `${item} ${label}`}
+          {override ? ` ${overrideText}` : ` ${item} ${label}`}
         </label>
       </form>
     </>

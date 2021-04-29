@@ -150,6 +150,7 @@ export default function Grid() {
   }
 
   function GetNeighbor() {
+    console.log(state.locatedEnd);
     let locatedEnd = false;
 
     if (searchArray.length <= 0 && !isSearching) {
@@ -161,6 +162,7 @@ export default function Grid() {
       searchNode = searchArray.shift();
     } else {
       // no end located
+      dispatch({ type: ACTIONS.NO_END, payload: true });
       isSearching = false;
     }
 
@@ -287,22 +289,38 @@ export default function Grid() {
   }
 
   function Reset() {
+    console.log(state.locatedEnd);
     dispatch({ type: ACTIONS.RESET });
     setGrid([]);
     searchNode = [];
     isSearching = false;
     searchArray = [];
   }
-
   return (
     <>
       <section style={{ display: "flex" }}>
         <div style={{ height: "80px", width: "275px" }}>
+          <p
+            disabled={!state.noEnd}
+            hidden={!state.noEnd}
+            style={{ color: "red" }}
+          >
+            No path found.
+          </p>
+          <p
+            disabled={!state.noEnd}
+            hidden={!state.noEnd}
+            // style={{ color: "red" }}
+          >
+            Make sure there is a start and end node on the grid, and those nodes
+            are not sealed off by walls.
+          </p>
+
           <SlideBar
             enable={state.disableUI}
             id={1}
             label="Rows"
-            min={4}
+            min={5}
             max={30}
             step={1}
             value={state.numRows}
@@ -312,7 +330,7 @@ export default function Grid() {
             enable={state.disableUI}
             id={2}
             label="Cols"
-            min={4}
+            min={5}
             max={30}
             step={1}
             value={state.numCols}
@@ -347,7 +365,7 @@ export default function Grid() {
             height: "40px",
             width: "100px",
             marginLeft: "10px",
-            backgroundColor: state.setStart ? "cyan" : "",
+            backgroundColor: state.setStart ? "rgba(255, 0, 0, 0.50)" : "",
           }}
           onClick={() =>
             dispatch({
@@ -366,7 +384,7 @@ export default function Grid() {
             height: "40px",
             width: "100px",
             marginLeft: "10px",
-            backgroundColor: state.setEnd ? "cornsilk" : "",
+            backgroundColor: state.setEnd ? "rgba(0, 0, 255, 0.5)" : "",
           }}
           onClick={() =>
             dispatch({

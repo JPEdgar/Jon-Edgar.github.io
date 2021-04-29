@@ -8,9 +8,9 @@ export default function About() {
         I'm a self-taught programmer with a bachelor's degree in entertainment
         and game design. When the economy receded in 2008, I started my own
         company focused on mobile game design and prototype development using
-        Unity and JavaScript. Unfortunately, the artists that agreed to work on
-        the graphical assets bailed, and the company went out of business before
-        releasing any titles.
+        Unity and JavaScript. Unfortunately, I wasn't able to secure any
+        artists, and the company went out of business before releasing any
+        titles.
       </p>
       <p>
         With the closure of my company, I went on a programming hiatus. I picked
@@ -26,13 +26,18 @@ export default function About() {
       <p>Technologies/Libraries: React, Unity</p>
       <p>React Libraries: Router, Font-Awesome, Express, Axios</p>
       <p>React Frameworks: Bootstrap, Bootstrap-Social, JSON Server</p>
-      <i className="fab fa-react">React</i>
-      <i className="fab fa-bootstrap">Bootstrap</i>
-      <i className="fab fa-html5">HTML</i>
-      <i className="fab fa-css3">CSS</i>
-      <i className="fab fa-js-square">JavaScript</i>
-      <i className="fab fa-unity">Unity</i>
-      <p>here</p>
+
+
     </div>
   );
 }
+
+/*
+      <i className="icon fab fa-react"> React</i>
+      <i className="icon fab fa-bootstrap"> Bootstrap</i>
+      <i className="icon fab fa-html5"> HTML</i>
+      <i className="icon fab fa-css3"> CSS</i>
+      <i className="icon fab fa-js-square"> JavaScript</i>
+      <i className="icon fab fa-unity"> Unity</i>
+      
+*/

@@ -1,7 +1,14 @@
+$mainBlue: hsl(240, 85%, 40%);
+$secondaryBlue: hsl(240, 85%, 95%);
+$text: rgb(20, 20, 20);
+$temp: rgba(255, 0, 0, 0.75)
+
+
 * {
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
+
 
   // background-color: pink;
   // background-color: white;
@@ -13,7 +20,9 @@ html {
 }
 
 header {
-  // background-color: blue;
+  margin: -10px -30px;
+  padding: 0 30px;
+  background-color: $mainBlue;
 }
 
 body {
@@ -25,7 +34,7 @@ body {
 
 nav {
   height: 50px;
-  margin-bottom: 10px;
+  margin: 10px 0px;
 }
 
 ul {
@@ -34,7 +43,10 @@ ul {
 }
 
 li {
-  // background-color: yellow;
+  background-color: $secondaryBlue;
+
+  margin: 0 -30px;
+  padding: 0 30px;
 
   display: flex;
   height: 100%;
@@ -49,40 +61,55 @@ li {
 
 a {
   text-decoration: none;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
   will-change: transform;
 }
 a:hover {
   transform: scale(1.15);
+  color: red;
 }
 
 p {
   margin-bottom: 10px;
+  color: $text;
 }
 
 button {
+  cursor: pointer;
   height: 30px;
   padding: 8px;
-  background-color: lightgray;
+  background-color: $secondaryBlue;
+  color: $mainBlue;
+  font-weight: normal;
+  transition: color 0.5s ease-in-out, font-weight, 0.5s ease-in-out;
+}
+
+button:hover {
+  color: red;
+  font-weight: bold;
 }
 
 .nav {
+  color: $mainBlue;
+  // color: pink;
   // background-color: yellow;
-  color: blue;
+  // color: blue;
 }
 
 .nav:hover {
   height: 25px;
-  color: red;
+  // color: red;
 }
 
 .subjectTitle {
+  color: $mainBlue;
   font-size: 2rem;
   padding: 10px 0px;
 }
 
 .header {
-  // background-color: blue;
+  // background-color: lightblue;
+  color: $secondaryBlue;
 }
 
 .myName {
@@ -90,10 +117,28 @@ button {
 }
 
 .icon {
+  margin-right: 5px;
   font-size: 1.2rem;
 }
 
 .main {
-  background-color: rgb(190, 213, 214);
+  background-color: rgb(250, 250, 250);
   padding: 10px 30px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  // width: 100%;
+  // height: 10px;
+  border-radius: 5px;
+  background: $secondaryBlue;
+  outline: none;
+  opacity: 0.6;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.slider:hover {
+  opacity: 1;
 }

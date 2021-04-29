@@ -4,6 +4,12 @@
   font-family: sans-serif;
 }
 
+header {
+  margin: -10px -30px;
+  padding: 0 30px;
+  background-color: #0f0fbd;
+}
+
 body {
   font-size: 1.1rem;
   padding: 25px 10vw;
@@ -11,7 +17,7 @@ body {
 
 nav {
   height: 50px;
-  margin-bottom: 10px;
+  margin: 10px 0px;
 }
 
 ul {
@@ -20,6 +26,9 @@ ul {
 }
 
 li {
+  background-color: #e7e7fd;
+  margin: 0 -30px;
+  padding: 0 30px;
   display: flex;
   height: 100%;
   width: 100%;
@@ -30,36 +39,51 @@ li {
 
 a {
   text-decoration: none;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
   will-change: transform;
 }
 
 a:hover {
   transform: scale(1.15);
+  color: red;
 }
 
 p {
   margin-bottom: 10px;
+  color: #141414;
 }
 
 button {
+  cursor: pointer;
   height: 30px;
   padding: 8px;
-  background-color: lightgray;
+  background-color: #e7e7fd;
+  color: #0f0fbd;
+  font-weight: normal;
+  transition: color 0.5s ease-in-out, font-weight, 0.5s ease-in-out;
+}
+
+button:hover {
+  color: red;
+  font-weight: bold;
 }
 
 .nav {
-  color: blue;
+  color: #0f0fbd;
 }
 
 .nav:hover {
   height: 25px;
-  color: red;
 }
 
 .subjectTitle {
+  color: #0f0fbd;
   font-size: 2rem;
   padding: 10px 0px;
+}
+
+.header {
+  color: #e7e7fd;
 }
 
 .myName {
@@ -67,10 +91,26 @@ button {
 }
 
 .icon {
+  margin-right: 5px;
   font-size: 1.2rem;
 }
 
 .main {
-  background-color: #bed5d6;
+  background-color: #fafafa;
   padding: 10px 30px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  border-radius: 5px;
+  background: #e7e7fd;
+  outline: none;
+  opacity: 0.6;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.slider:hover {
+  opacity: 1;
 }

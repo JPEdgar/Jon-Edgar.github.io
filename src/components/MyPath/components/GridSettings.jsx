@@ -12,6 +12,6 @@ export const StartNode = {
 };
 
 export const EndNode = {
-  xLoc: 4,
-  yLoc: 4,
+  xLoc: 3,
+  yLoc: 3,
 };

@@ -5,10 +5,10 @@ export default function Projects() {
     <div>
       <h3 className="subjectTitle">Projects</h3>
       <p>JPEdgar.com (in progress)</p>
-      <img src="https://picsum.photos/200/300" alt="placeholder"></img>
+      {/* <img src="https://picsum.photos/200/300" alt="placeholder"></img> */}
       <p>
-        JPEdgar.com is my author website. This project was designed initially
-        with templates from webs.com, but I've been working on redesigning this
+        This project is my author website and was designed initially with
+        templates from webs.com, but I've been working on redesigning this
         project from scratch.
       </p>
       <p>
