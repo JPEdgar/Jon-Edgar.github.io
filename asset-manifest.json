@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/JPEdgar.github.io/static/css/main.c5fbab7f.chunk.css",
-    "main.js": "/JPEdgar.github.io/static/js/main.1d1080cc.chunk.js",
-    "main.js.map": "/JPEdgar.github.io/static/js/main.1d1080cc.chunk.js.map",
-    "runtime-main.js": "/JPEdgar.github.io/static/js/runtime-main.e5353efd.js",
-    "runtime-main.js.map": "/JPEdgar.github.io/static/js/runtime-main.e5353efd.js.map",
-    "static/css/2.150e79c0.chunk.css": "/JPEdgar.github.io/static/css/2.150e79c0.chunk.css",
-    "static/js/2.e6f8e2ad.chunk.js": "/JPEdgar.github.io/static/js/2.e6f8e2ad.chunk.js",
-    "static/js/2.e6f8e2ad.chunk.js.map": "/JPEdgar.github.io/static/js/2.e6f8e2ad.chunk.js.map",
-    "index.html": "/JPEdgar.github.io/index.html",
-    "static/css/2.150e79c0.chunk.css.map": "/JPEdgar.github.io/static/css/2.150e79c0.chunk.css.map",
-    "static/css/main.c5fbab7f.chunk.css.map": "/JPEdgar.github.io/static/css/main.c5fbab7f.chunk.css.map",
-    "static/js/2.e6f8e2ad.chunk.js.LICENSE.txt": "/JPEdgar.github.io/static/js/2.e6f8e2ad.chunk.js.LICENSE.txt",
-    "static/media/all.css": "/JPEdgar.github.io/static/media/fa-solid-900.efbd5d20.eot"
+    "main.css": "/static/css/main.c5fbab7f.chunk.css",
+    "main.js": "/static/js/main.1d1080cc.chunk.js",
+    "main.js.map": "/static/js/main.1d1080cc.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cb052e48.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cb052e48.js.map",
+    "static/css/2.9d1ea67c.chunk.css": "/static/css/2.9d1ea67c.chunk.css",
+    "static/js/2.e6f8e2ad.chunk.js": "/static/js/2.e6f8e2ad.chunk.js",
+    "static/js/2.e6f8e2ad.chunk.js.map": "/static/js/2.e6f8e2ad.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.9d1ea67c.chunk.css.map": "/static/css/2.9d1ea67c.chunk.css.map",
+    "static/css/main.c5fbab7f.chunk.css.map": "/static/css/main.c5fbab7f.chunk.css.map",
+    "static/js/2.e6f8e2ad.chunk.js.LICENSE.txt": "/static/js/2.e6f8e2ad.chunk.js.LICENSE.txt",
+    "static/media/all.css": "/static/media/fa-solid-900.efbd5d20.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.e5353efd.js",
-    "static/css/2.150e79c0.chunk.css",
+    "static/js/runtime-main.cb052e48.js",
+    "static/css/2.9d1ea67c.chunk.css",
     "static/js/2.e6f8e2ad.chunk.js",
     "static/css/main.c5fbab7f.chunk.css",
     "static/js/main.1d1080cc.chunk.js"
