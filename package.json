@@ -2,7 +2,7 @@
   "name": "portfolio-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jon-edgar.com",
+  "homepage": "https://jpedgar.github.io/JPEdgar.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@testing-library/jest-dom": "^5.11.10",
