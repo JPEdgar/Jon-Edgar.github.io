@@ -3,7 +3,7 @@ import React from "react";
 import "../pathStyles.css";
 
 // returns a 2d array
-export default function BuildGrid(state) {
+const BuildGrid = (state) => {
   const grid = [];
   for (let i = 0; i < state.numRows; i++) {
     grid.push([]);
@@ -42,10 +42,11 @@ export default function BuildGrid(state) {
           border: `${state.stroke}px solid red`,
         }}
       >
-        {/* {col}, {row} */}
       </div>
     );
   }
 
   return grid;
-}
+};
+
+export default BuildGrid;

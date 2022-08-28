@@ -1,4 +1,4 @@
-export const GridDetails = {
+ const GridDetails = {
   numRows: 10,
   numCols: 10,
   cellSize: 30,
@@ -6,12 +6,14 @@ export const GridDetails = {
   animationDelay: 30,
 };
 
-export const StartNode = {
+ const StartNode = {
   xLoc: 1,
   yLoc: 2,
 };
 
-export const EndNode = {
+ const EndNode = {
   xLoc: 7,
   yLoc: 8,
 };
+
+export {GridDetails, StartNode, EndNode}

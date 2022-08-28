@@ -1,8 +1,11 @@
-import { createContext, useReducer } from "react";
-import { GridDetails, StartNode, EndNode } from "../components/GridSettings";
-export const GridContext = createContext();
+import React, { createContext, useReducer } from "react";
 
-export const ACTIONS = {
+// components
+import { GridDetails, StartNode, EndNode } from "../components/GridSettings";
+
+const GridContext = createContext();
+
+const ACTIONS = {
   GRID_ROWS_SET: "grid-rows-set",
   GRID_COLS_SET: "grid-cols-set",
   CELL_SIZE: "cell-size",
@@ -47,7 +50,7 @@ const initialState = {
   luckyNode: [], // the node that found the end.
 };
 
-function reducer(state, action) {
+const reducer = (state, action) => {
   switch (action.type) {
     // grid actions
     case ACTIONS.BUILD_GRID:
@@ -94,7 +97,6 @@ function reducer(state, action) {
         setDrawWall: action.payload,
       };
 
-    //
     case ACTIONS.RESET:
       return {
         ...state, // grid states
@@ -155,13 +157,12 @@ function reducer(state, action) {
       };
     case ACTIONS.NO_END:
       return { ...state, noEnd: action.payload };
-    //
     default:
       return state;
   }
-}
+};
 
-export function GridProvider(props) {
+const GridProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -169,8 +170,6 @@ export function GridProvider(props) {
       {props.children}
     </GridContext.Provider>
   );
-}
+};
 
-// let element = document.getElementById(`${action.payload[0]}, ${action.payload[1]}`)
-// element.classList.add("testing2")
-// console.log(element)
+export { ACTIONS, GridProvider, GridContext };

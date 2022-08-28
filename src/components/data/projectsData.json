@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "JPEdgar.com",
+    "link": "www.jpedgar.com",
+    "imageUrl": "./images/jpedgar-com/JPEdgar-com.jpg",
+    "imageList": [
+      {
+        "id": 1001,
+        "image": "./images/jpedgar-com/folderStructure.jpg",
+        "alt": "JPEdgar.com folder structure snippet",
+        "caption": "Organized folder structures."
+      },
+      {
+        "id": 1002,
+        "image": "./images/jpedgar-com/code01.jpg",
+        "alt": "JPEdgar.com code snippet 1",
+        "caption": "Part of the project context."
+      },
+      {
+        "id": 1003,
+        "image": "./images/jpedgar-com/code02.jpg",
+        "alt": "JPEdgar.com code snippet 2",
+        "caption": "The blog snippet code for the front page using the blog context."
+      }
+    ],
+    "textList": [
+      "This project is my author website and was designed initially with templates from webs.com, but I've been working on redesigning this project from scratch.",
+      "This project uses the MERN stack, utilizing front-end and back-end development for authentication and blog control (pending).",
+      "Almost all of the work was done by me.  Back-end had help with some tutorials.",
+      "Front-end Technologies: React (written in Javascript), font-awesome, axios, bootstrap, react-bootstrap, draft-js, moment, react-file-base64, react-google-login.",
+      "Back-end Technologies: express, cors, dotenv, mongoose, nodemon."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "MMO-Toolkit (in development)",
+    "link": "www.mmo-toolkit.com",
+    "imageUrl": "./images/mmo-toolkit-com/mmo-toolkit-com.jpg",
+    "imageList": [
+      {
+        "id": 2001,
+        "image": "./images/mmo-toolkit-com/snip01.jpg",
+        "alt": "mmo-toolkit snippet",
+        "caption": "Dynamically retrieve data from XIV api and show results in dropdown list."
+      },
+      {
+        "id": 2002,
+        "image": "./images/mmo-toolkit-com/code01.jpg",
+        "alt": "mmo-toolkit code snippet 1",
+        "caption": "Code snippet for item search."
+      },
+      {
+        "id": 2003,
+        "image": "./images/mmo-toolkit-com/code02.jpg",
+        "alt": "mmo-toolkit code snippet 2",
+        "caption": "With calls from various APIs, the store starts to break down the promise for site use."
+      },
+      {
+        "id": 2004,
+        "image": "./images/mmo-toolkit-com/code03.jpg",
+        "alt": "mmo-toolkit code snippet 3",
+        "caption": "Use of an AbortController() to exit out of fetch request if component is unmounted."
+      }
+    ],
+    "textList": [
+      "This is a private project still in development. Currently, this project is focused as a FFXIV site, but planned to branch off to other MMORPGs.",
+      "This project uses multiple APIs for retrieving data, and a back-end server for authentication and user settings.",
+      "Front-end Technologies: React (written in Javascript), axios, bootstrap, react-bootstrap, gh-pages, jwt-decode, moment, react-bootstrap-submenu, react-google-login, react-router.",
+      "Back-end Technologies: express, bcryptjs, body-parser, cors, dotenv, jsonwebtoken, mongoose, nodemon."
+    ]
+  }
+]

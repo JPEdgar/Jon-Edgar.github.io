@@ -1,116 +1,158 @@
 * {
-  margin: 0px;
-  padding: 0px;
   font-family: sans-serif;
 }
 
-header {
-  margin: -10px -30px;
-  padding: 0 30px;
-  background-color: #0f0fbd;
-}
-
-body {
-  font-size: 1.1rem;
-  padding: 25px 10vw;
-}
-
-nav {
-  height: 50px;
-  margin: 10px 0px;
-}
-
-ul {
-  height: 100%;
-  display: flex;
-}
-
-li {
-  background-color: #e7e7fd;
-  margin: 0 -30px;
-  padding: 0 30px;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
-  will-change: transform;
-}
-
-a:hover {
-  transform: scale(1.15);
-  color: red;
-}
-
-p {
-  margin-bottom: 10px;
-  color: #141414;
-}
-
-button {
-  cursor: pointer;
-  height: 30px;
-  padding: 8px;
-  background-color: #e7e7fd;
-  color: #0f0fbd;
-  font-weight: normal;
-  transition: color 0.5s ease-in-out, font-weight, 0.5s ease-in-out;
-}
-
-button:hover {
-  color: red;
-  font-weight: bold;
-}
-
-.nav {
-  color: #0f0fbd;
-}
-
-.nav:hover {
-  height: 25px;
-}
-
-.subjectTitle {
-  color: #0f0fbd;
-  font-size: 2rem;
-  padding: 10px 0px;
+.test {
+  background-color: green;
 }
 
 .header {
-  color: #e7e7fd;
+  background-color: #0f0fbd;
 }
 
-.myName {
+.headerText {
+  color: #e7e7fd;
   font-size: 3rem;
 }
 
-.icon {
-  margin-right: 5px;
-  font-size: 1.2rem;
+.gitLinkPrimary {
+  text-decoration: none;
+  color: #0f0fbd;
 }
 
-.main {
-  background-color: #fafafa;
-  padding: 10px 30px;
+.gitLinkSecondary {
+  text-decoration: none;
+  color: #e7e7fd;
 }
 
-.slider {
-  -webkit-appearance: none;
-  border-radius: 5px;
-  background: #e7e7fd;
-  outline: none;
-  opacity: 0.6;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+.modalHeader,
+.navbar {
+  background-color: #e7e7fd;
+}
+
+.navLink {
+  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.navLink:hover {
+  transform: scale(1.15);
+}
+
+.sectionHeader {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f0fbd;
+}
+
+.growModal {
+  z-index: 1;
+  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.growModal:hover {
+  transform: scale(1.05);
+}
+
+.growMouseOver {
+  z-index: 2;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+.slideImage {
+  max-height: 200px;
+  max-width: 100%;
+  background-color: yellow;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
   cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.slider:hover {
-  opacity: 1;
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.slideShowText {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  background-color: #636363;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.slideFade {
+  animation-name: slideFade;
+  animation-duration: 1.5s;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }

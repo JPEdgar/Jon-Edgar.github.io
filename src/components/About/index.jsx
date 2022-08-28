@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function About() {
+const About = () => {
   return (
-    <div>
-      <h3 className="subjectTitle">About me</h3>
+    <div className="px-4 py-2">
+      <div className="sectionHeader mb-2">About me</div>
       <p>
         I'm a self-taught programmer with a bachelor's degree in entertainment
         and game design. When the economy receded in 2008, I started my own
@@ -26,18 +26,8 @@ export default function About() {
       <p>Technologies/Libraries: React, Unity</p>
       <p>React Libraries: Router, Font-Awesome, Express, Axios</p>
       <p>React Frameworks: Bootstrap, Bootstrap-Social, JSON Server</p>
-
-
     </div>
   );
-}
+};
 
-/*
-      <i className="icon fab fa-react"> React</i>
-      <i className="icon fab fa-bootstrap"> Bootstrap</i>
-      <i className="icon fab fa-html5"> HTML</i>
-      <i className="icon fab fa-css3"> CSS</i>
-      <i className="icon fab fa-js-square"> JavaScript</i>
-      <i className="icon fab fa-unity"> Unity</i>
-      
-*/
+export default About;
