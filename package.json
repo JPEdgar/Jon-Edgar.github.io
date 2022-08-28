@@ -2,6 +2,7 @@
   "name": "jon-edgar.github.io",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jon-edgar.com",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.5",
@@ -19,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
