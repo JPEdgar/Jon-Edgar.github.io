@@ -10,6 +10,7 @@ import Projects from "./components/Projects";
 import About from "./components/About";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Graphic from "./components/Graphic";
 
 // styles
 import "./styles.css";
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/" element={<Projects />} />
           <Route path="/algos" element={<Algos />} />
           <Route path="/about" element={<About />} />
+          <Route path="/graphic-design" element={<Graphic />} />
         </Routes>
       </BrowserRouter>
     </Container>

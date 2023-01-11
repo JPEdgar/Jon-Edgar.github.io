@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "title": "D&D 3.5e Character Sheet",
+    "smallImage": "./images/graphic-design/CharacterSheet-small.jpg",
+    "largeImage": "./images/graphic-design/CharacterSheet-large.jpg"
+  },
+  {
+    "id": 1,
+    "title": "OBGYN Associates Pregnancy Newsletter Wks 12-20",
+    "smallImage": "./images/graphic-design/SPSDMG00011-small.jpg",
+    "largeImage": "./images/graphic-design/SPSDMG00011-large.jpg"
+  },
+  {
+    "id": 2,
+    "title": "My Baby Rx Pads",
+    "smallImage": "./images/graphic-design/SPSDMG20055-small.jpg",
+    "largeImage": "./images/graphic-design/SPSDMG20055-large.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Breast Pump Rental",
+    "smallImage": "./images/graphic-design/SPSDWS00625-small.jpg",
+    "largeImage": "./images/graphic-design/SPSDWS00625-large.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Card - Thank You",
+    "smallImage": "./images/graphic-design/SPSMGH20117-small.jpg",
+    "largeImage": "./images/graphic-design/SPSMGH20117-large.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Thank You Card",
+    "smallImage": "./images/graphic-design/SPSMHH20028-small.jpg",
+    "largeImage": "./images/graphic-design/SPSMHH20028-large.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Alzheimer's Disease and Communication",
+    "smallImage": "./images/graphic-design/SPSMHH20036-small.jpg",
+    "largeImage": "./images/graphic-design/SPSMHH20036-large.jpg"
+  }
+]
