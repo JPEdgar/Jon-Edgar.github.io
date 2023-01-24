@@ -12,7 +12,7 @@ const Navbar = () => {
       <NavLink path="/" text="Projects" />
       <NavLink path="/algos" text="Algorithms" />
       <NavLink path="/about" text="About" />
-      <NavLink path="/graphic-design" text="Graphic Design samples" />
+      {/* <NavLink path="/graphic-design" text="Graphic Design samples" /> */}
     </Nav>
   );
 };
