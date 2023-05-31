@@ -4,7 +4,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 // data
-import pdfData from "../data/graphicDesignListData.json";
+import pdfData from "../../data/graphicDesignListData.json";
 
 // custom components
 import ImageCard from "./ImageCard";

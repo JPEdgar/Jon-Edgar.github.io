@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // libraries
 import { Card, Col, Modal, Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // const imageList = [ { id: 1001, image: "./images/jpedgar-com/folderStructure.jpg", alt: "JPEdgar.com folder structure snippet", caption: "Organized folder structures.", }, { id: 1002, image: "./images/jpedgar-com/code01.jpg", alt: "JPEdgar.com code snippet 1", caption: "Part of the project context.", }, { id: 1003, image: "./images/jpedgar-com/code02.jpg", alt: "JPEdgar.com code snippet 2", caption: "The blog snippet code for the front page using the blog context.", }, { id: 1004, image: "./images/jpedgar-com/JPEdgar-com.jpg", alt: "test4", caption: "test content 4", }, ];
 
@@ -11,9 +12,14 @@ const ProjectsModal = ({ projectData, show, onHide, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton className="modalHeader">
-        <Modal.Title >
-          <div className="sectionHeader me-2">{projectData.title}</div>
-          (mouse over image to enlarge)
+        <Modal.Title>
+          <div >
+            <a className="sectionHeader me-2" href={projectData.link} style={{ textDecoration: "none" }} target="_blank" rel="noreferrer">
+              {projectData.title}
+            </a>
+          </div>
+         
+          <small>(Mouse over image to enlarge.)</small>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -114,9 +120,16 @@ const Slide = ({ slideCount, slideInfo, index }) => {
       style={{ backgroundColor: "grey" }}
     >
       <div className="numbertext">
-        {index+1} / {slideCount}
+        {index + 1} / {slideCount}
       </div>
-      <img src={slideInfo.image} alt={slideInfo.alt} className={mouseOverFlag ? "h-100 " : "slideImage "} style={{ cursor: "zoom-in" }} onMouseOver={() => handleMouseOver(true)} onMouseOut={() => handleMouseOver(false)} />
+      <img
+        src={slideInfo.image}
+        alt={slideInfo.alt}
+        className={mouseOverFlag ? "h-100 " : "slideImage "}
+        style={{ cursor: "zoom-in" }}
+        onMouseOver={() => handleMouseOver(true)}
+        onMouseOut={() => handleMouseOver(false)}
+      />
       <div className="w-100 slideShowText">{slideInfo.caption}</div>
     </div>
   );

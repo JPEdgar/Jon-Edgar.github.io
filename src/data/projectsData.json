@@ -1,8 +1,9 @@
 [
   {
     "id": 1,
-    "title": "JPEdgar.com",
-    "link": "www.jpedgar.com",
+    "title": "www.JPEdgar.com",
+    "link": "https://www.jpedgar.com/",
+    "showcase": true,
     "imageUrl": "./images/jpedgar-com/JPEdgar-com.jpg",
     "imageList": [
       {
@@ -26,8 +27,8 @@
     ],
     "textList": [
       "This project is my author website and was designed initially with templates from webs.com, but I've been working on redesigning this project from scratch.",
-      "This project uses the MERN stack, utilizing front-end and back-end development for authentication and blog control (pending).",
-      "Almost all of the work was done by me.  Back-end had help with some tutorials.",
+      "This project uses the MERN stack, utilizing front-end and back-end development for authentication and blog control.",
+      "Almost all of the work was done by me.  The back end had help with some tutorials for initial setup, but all routes, controls, etc. were written soley by me.",
       "Front-end Technologies: React (written in Javascript), font-awesome, axios, bootstrap, react-bootstrap, draft-js, moment, react-file-base64, react-google-login.",
       "Back-end Technologies: express, cors, dotenv, mongoose, nodemon."
     ]
@@ -36,6 +37,7 @@
     "id": 2,
     "title": "MMO-Toolkit (in development)",
     "link": "www.mmo-toolkit.com",
+    "showcase": false,
     "imageUrl": "./images/mmo-toolkit-com/mmo-toolkit-com.jpg",
     "imageList": [
       {
@@ -68,6 +70,55 @@
       "This project uses multiple APIs for retrieving data, and a back-end server for authentication and user settings.",
       "Front-end Technologies: React (written in Javascript), axios, bootstrap, react-bootstrap, gh-pages, jwt-decode, moment, react-bootstrap-submenu, react-google-login, react-router.",
       "Back-end Technologies: express, bcryptjs, body-parser, cors, dotenv, jsonwebtoken, mongoose, nodemon."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "www.DigitalBookshelf.io (in development)",
+    "link": "http://www.digitalbookshelf.io/",
+    "showcase": true,
+    "imageUrl": "",
+    "imageList": [
+      {
+        "id": 3001,
+        "image": "",
+        "alt": "Digital Bookshelf -- no image available (yet)",
+        "caption": ""
+      }
+    ],
+    "textList": [
+      "This is a private project still in development.",
+      "This is will be a social media web application designed to manage your owned books.",
+      "This is a full stack MERN project with authentication.",
+      "Front-end Technologies:  ReactJS, axios, bootstrap, react-bootstrap, gh-pages, and moment.",
+      "Back-end Technologies:  express, body-parser, cookie-parser, cors, date-fns, dotenv, express, jsonwebtoken, mongoose, uuid, validator, and nodemon."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "d20 Tasklist (in development)",
+    "link": "https://www.jpedgar.com/random-cleaning-list/",
+    "showcase": true,
+    "imageUrl": "./images/d20Tasklist/d20Tasklist.jpg",
+    "imageList": [
+      {
+        "id": 4001,
+        "image": "./images/d20Tasklist/functionality01.jpg",
+        "alt": "Working on tasks",
+        "caption": "Clicking and completing tasks reduces the task monster's health."
+      },
+      {
+        "id": 4002,
+        "image": "./images/d20Tasklist/functionality02.jpg",
+        "alt": "Monster dead",
+        "caption": "Reducing the task monster's health to 0 gives a skull-and-crossbones, indicating that it's time to rest."
+      }
+    ],
+    "textList": [
+      "This is a private project still in development.",
+      "This is a todo tasklist for people who have difficulties focusing, get easily overwhelmed, or like some abstract goal to aim for while working.",
+      "Though this is a front-end project only, the code structure is designed as if it were a full-stack project.  That means if a back end ever is built, it can be plugged in with minimal work.",
+      "Front-end Technologies:  ReactJS, axios, bootstrap, react-bootstrap, gh-pages, lodash, react-uuid, and fortawesome."
     ]
   }
 ]

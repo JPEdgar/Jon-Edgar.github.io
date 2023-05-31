@@ -7,7 +7,7 @@ import { Row } from "react-bootstrap";
 import Project from "./Project";
 
 // data
-import projectsData from "../data/projectsData.json";
+import projectsData from "../../data/projectsData.json";
 
 const Projects = () => {
   return (
@@ -16,12 +16,14 @@ const Projects = () => {
       <div className="mb-2">Click to see details</div>
       <Row>
         {projectsData &&
-          projectsData.map((projectData) => (
-            <Project
-              key={`Project-${projectData.id}`}
-              projectData={projectData}
-            />
-          ))}
+          projectsData.map((projectData) =>
+            projectData.showcase ? (
+              <Project
+                key={`Project-${projectData.id}`}
+                projectData={projectData}
+              />
+            ) : null
+          )}
       </Row>
     </div>
   );
