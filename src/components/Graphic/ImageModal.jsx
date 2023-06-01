@@ -5,7 +5,11 @@ import { Modal, Button, Image } from "react-bootstrap";
 
 const ImageModal = (props) => {
     const {data} = props
-    console.log(data)
+    
+    const handleClick = () => {
+      console.log(data)
+    }
+
   return (
     <Modal
       {...props}
@@ -22,7 +26,8 @@ const ImageModal = (props) => {
         <Image src={data?.largeImage} alt={data?.title} fluid/>
         {data?.description}
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="d-flex justify-content-between">
+        <Button variant="success" href={`${data.largeImage}`} target="_blank" rel="noreferrer">Open Image in New Tab</Button>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
